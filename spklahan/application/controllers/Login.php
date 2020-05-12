@@ -32,6 +32,7 @@ class Login extends CI_Controller
             $username = $this->input->post('username');
             $password = $this->input->post('password');
 
+            // check the data in database
             $data_users = $this->model_auth->cek_login();
 
             // $data_users = $this->db
@@ -57,11 +58,11 @@ class Login extends CI_Controller
                 break;
                 // case 2 as petugas
                 case 2:
-                    redirect('Home');
+                    redirect('Pendaftaran/index');
                 break;
                 // case 3 as petugas_pusat
                 case 3:
-                    redirect('Home');
+                    redirect('Lahan');
                     break;
                 
                 default:

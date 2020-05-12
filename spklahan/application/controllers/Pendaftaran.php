@@ -33,7 +33,7 @@ class Pendaftaran extends CI_Controller
             ];
             $this->db->insert('pendaftaran', $set_users);
 
-            redirect("Pendaftaran");
+            redirect("Pendaftaran/index");
         }
     }
 }

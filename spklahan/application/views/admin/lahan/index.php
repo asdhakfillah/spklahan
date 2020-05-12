@@ -6,7 +6,7 @@
                 <h4 class="card-title"> Simple Table</h4>
 
                 <a href="<?php echo base_url("Lahan/perhitungan") ?>" class="btn btn-primary">Calculation</a>
-                <a href="<?php echo base_url(). 'Lahan/generate_to_pdf';?>"><button type="button" class="btn btn-outline-primary mr-2">Print Biodata DOMPDF</button></a>
+                <a href="<?php echo base_url("Lahan/export") ?>" class="btn btn-outline-primary mr-2">Hasil Lahan</a>
                 </div>
             </div>
             <div class="card-body">
@@ -14,7 +14,7 @@
                     <table id="example1" class="table">
                         <thead class=" text-primary">
                             <th>
-                                #
+                                NO
                             </th>
                             <th>
                                 Penanggung jawab Desa

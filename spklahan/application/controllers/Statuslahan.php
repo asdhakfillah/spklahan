@@ -19,7 +19,7 @@ class Statuslahan extends CI_Controller
         $this->form_validation->set_rules('kecamatan', 'kecamatan', 'trim|required');
         $this->form_validation->set_rules('desa', 'desa', 'trim|required');
         $this->form_validation->set_rules('status', 'status', 'trim|required');
-       
+
         if ($this->form_validation->run() == false) {
             $this->load->view('admin/statuslahan/insert',$data);
         } else {

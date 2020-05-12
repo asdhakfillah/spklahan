@@ -85,7 +85,7 @@
           <li class="active">
             <a href="index.html"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
           </li>
-          <li class="menu-title">UI elements</li><!-- /.menu-title -->
+          <li class="menu-title">Menu</li><!-- /.menu-title -->
           <li class="menu-item-has-children dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs">
             </i>Pendaftaran</a>
@@ -94,9 +94,13 @@
               <li><i class="fa fa-id-badge"></i><a href="<?php echo base_url('Statuslahan') ?>">Statuslahan</a></li>
               </ul>
           </li>
-          <li class="menu-item-has-children dropdown">
+          <li class="menu-item">
             <a href="<?php echo base_url('Users') ?>" class="" data-toggle="" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-id-badge">
             </i>User</a>
+          </li>
+          <li class="menu-item">
+            <a href="<?php echo base_url('Lahan/export');?>" class="" data-toggle="" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-id-badge">
+            </i>Hasil Lahan</a>
           </li>
           
         </ul>

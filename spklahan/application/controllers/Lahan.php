@@ -239,4 +239,11 @@ class Lahan extends CI_Controller
 
         ($return);
     }
+
+    public function export()
+	{
+        // $this->load->library(array('session'));
+		$data['invoice'] = $this->model_lahan->tampil_data();
+		$this->load->view('export_data_hasil_lahan', $data);
+	}
 }
