@@ -62,7 +62,7 @@ class Login extends CI_Controller
                 break;
                 // case 3 as petugas_pusat
                 case 3:
-                    redirect('Lahan');
+                    redirect('Petugas_pusat/Lahan');
                     break;
                 
                 default:

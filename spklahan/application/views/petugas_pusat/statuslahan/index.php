@@ -1,4 +1,4 @@
-<?php $this->load->view("admin/includes/header") ?>
+<?php $this->load->view("petugas_pusat/includes_petugas_pusat/header") ?>
 <div class="row">
     <div class="col-md-12">
         <div class="card">
@@ -49,4 +49,4 @@
         </div>
     </div>
 </div>
-<?php $this->load->view("admin/includes/footer") ?>
+<?php $this->load->view("petugas_pusat/includes_petugas_pusat/footer") ?>

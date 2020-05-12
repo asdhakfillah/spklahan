@@ -1,12 +1,10 @@
-<?php $this->load->view("admin/includes/header") ?>
+<?php $this->load->view("petugas_pusat/includes_petugas_pusat/header") ?>
 <div class="row">
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
                 <h4 class="card-title"> Simple Table</h4>
-
-                <a href="<?php echo base_url("Lahan/perhitungan") ?>" class="btn btn-primary">Calculation</a>
-                <a href="<?php echo base_url("Lahan/export") ?>" class="btn btn-outline-primary mr-2">Hasil Lahan</a>
+                <a href="<?php echo base_url("Lahan/export") ?>" class="btn btn-primary mr-2">Export Hasil Lahan</a>
                 </div>
             </div>
             <div class="card-body">
@@ -58,9 +56,7 @@
                             <th>
                                 Hasil
                             </th>
-                            <th>
-                                Status
-                            </th>
+                            
 
                         </thead>
                         <tbody>
@@ -105,9 +101,6 @@
                                     <td>
                                         <?php echo $value->hasil ?>
                                     </td>
-                                     <td>
-                                        <a href="<?php echo base_url("Statuslahan/insert/".$value->id) ?>" class="btn btn-primary">Lahan</a>
-                                    </td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
@@ -127,4 +120,4 @@ $(document).ready(function() {
     } );
 } );
 </script> -->
-<?php $this->load->view("admin/includes/footer") ?>
+<?php $this->load->view("petugas_pusat/includes_petugas_pusat/footer") ?>
