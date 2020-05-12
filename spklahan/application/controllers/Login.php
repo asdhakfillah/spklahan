@@ -32,12 +32,13 @@ class Login extends CI_Controller
             $username = $this->input->post('username');
             $password = $this->input->post('password');
 
+            $data_users = $this->model_auth->cek_login();
 
-            $data_users = $this->db
-                ->where('username', $username)
-                ->where('password', md5($password))
-                ->get('users')
-                ->row(0);
+            // $data_users = $this->db
+            //     ->where('username', $username)
+            //     ->where('password', md5($password))
+            //     ->get('users')
+            //     ->row(0);
 
             $session_data = [
                 'is_loggedin' => true,
@@ -49,7 +50,24 @@ class Login extends CI_Controller
             ];
 
             $this->session->set_userdata('userlogin', $session_data);
-            redirect("Home");
+            switch ($data_users->level) {
+                // case 1 as admin
+                case 1:
+                    redirect('Home');
+                break;
+                // case 2 as petugas
+                case 2:
+                    redirect('Home');
+                break;
+                // case 3 as petugas_pusat
+                case 3:
+                    redirect('Home');
+                    break;
+                
+                default:
+                    break;
+            }
+            // redirect("Home");
         }
     }
 

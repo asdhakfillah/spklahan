@@ -207,7 +207,6 @@ class Lahan extends CI_Controller
                     if ($v == 0) {
                         $normalisasi[$key][$k] = 0;
                     } else {
-
                         $normalisasi[$key][$k] = $kriteria_min[$k] / $v;
                     }
                 }
