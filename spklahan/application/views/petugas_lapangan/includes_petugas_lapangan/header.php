@@ -86,31 +86,10 @@
             <a href="index.html"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
           </li>
           <li class="menu-title">Menu</li><!-- /.menu-title -->
-          <li class="menu-item-has-children dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs">
+          <li class="menu-item">
+            <a href="<?php echo base_url('Petugas_lapangan/Pendaftaran') ?>" class="" data-toggle="" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-id-badge">
             </i>Pendaftaran</a>
-            <ul class="sub-menu children dropdown-menu">
-              <li><i class="fa fa-id-badge"></i><a href="<?php echo base_url('Pendaftaran') ?>">Pendaftaran</a></li>
-              <li><i class="fa fa-id-badge"></i><a href="<?php echo base_url('Statuslahan') ?>">Status Lahan</a></li>
-            </ul>
           </li>
-          <li class="menu-item">
-            <a href="<?php echo base_url('Lahan');?>" class="" data-toggle="" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-id-badge">
-            </i>Hasil Lahan</a>
-          </li>
-          <li class="menu-item">
-            <a href="<?php echo base_url('Air');?>" class="" data-toggle="" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-id-badge">
-            </i>Air</a>
-          </li>
-          <li class="menu-item">
-            <a href="<?php echo base_url('Survey');?>" class="" data-toggle="" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-id-badge">
-            </i>Survey</a>
-          </li>
-          <li class="menu-item">
-            <a href="<?php echo base_url('Users') ?>" class="" data-toggle="" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-id-badge">
-            </i>User</a>
-          </li>
-          
         </ul>
       </div><!-- /.navbar-collapse -->
     </nav>

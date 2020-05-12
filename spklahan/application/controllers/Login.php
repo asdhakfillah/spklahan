@@ -58,7 +58,7 @@ class Login extends CI_Controller
                 break;
                 // case 2 as petugas
                 case 2:
-                    redirect('Pendaftaran/index');
+                    redirect('Petugas_lapangan/Pendaftaran/index');
                 break;
                 // case 3 as petugas_pusat
                 case 3:

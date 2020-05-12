@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2020 at 01:00 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.3.16
+-- Generation Time: 12 Mei 2020 pada 13.28
+-- Versi Server: 10.1.19-MariaDB
+-- PHP Version: 7.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -24,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `air`
+-- Struktur dari tabel `air`
 --
 
 CREATE TABLE `air` (
@@ -40,7 +39,7 @@ CREATE TABLE `air` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `air`
+-- Dumping data untuk tabel `air`
 --
 
 INSERT INTO `air` (`id_air`, `nama`, `kecamatan`, `desa`, `namapetugas`, `kekeruhan`, `sisakhlor`, `ph`, `hasil`) VALUES
@@ -52,7 +51,7 @@ INSERT INTO `air` (`id_air`, `nama`, `kecamatan`, `desa`, `namapetugas`, `kekeru
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bobot`
+-- Struktur dari tabel `bobot`
 --
 
 CREATE TABLE `bobot` (
@@ -64,7 +63,7 @@ CREATE TABLE `bobot` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `bobot`
+-- Dumping data untuk tabel `bobot`
 --
 
 INSERT INTO `bobot` (`id`, `kriteria`, `bobot`, `keterangan`, `jenis`) VALUES
@@ -72,14 +71,14 @@ INSERT INTO `bobot` (`id`, `kriteria`, `bobot`, `keterangan`, `jenis`) VALUES
 (2, 'minatmasyarakat', 10, '', 1),
 (3, 'segikesehatan', 20, '', 1),
 (4, 'jaraksumberair', 10, '', 1),
-(5, 'investor', 10, '', 2),
-(6, 'perizinan', 5, '', 1),
+(5, 'perizinan', 5, '', 2),
+(6, 'investor', 10, '', 1),
 (7, 'konturtanah', 10, '', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `lahan`
+-- Struktur dari tabel `lahan`
 --
 
 CREATE TABLE `lahan` (
@@ -91,6 +90,9 @@ CREATE TABLE `lahan` (
   `sumberair` int(11) NOT NULL,
   `minatmasyarakat` int(11) NOT NULL,
   `segikesehatan` int(11) NOT NULL,
+  `nilai_kekeruhan` float NOT NULL,
+  `nilai_sisa_khlor` float NOT NULL,
+  `nilai_ph` float NOT NULL,
   `jaraksumberair` int(11) NOT NULL,
   `perizinan` int(11) NOT NULL,
   `investor` int(11) NOT NULL,
@@ -100,31 +102,19 @@ CREATE TABLE `lahan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `lahan`
+-- Dumping data untuk tabel `lahan`
 --
 
-INSERT INTO `lahan` (`id`, `nama`, `namapetugas`, `kecamatan`, `desa`, `sumberair`, `minatmasyarakat`, `segikesehatan`, `jaraksumberair`, `perizinan`, `investor`, `konturtanah`, `hasil`, `status`) VALUES
-(1, '', '', '', '', 1, 91, 1, 4, 1, 39, 1, 3.071185346778, 0),
-(2, '', '', '', '', 2, 85, 2, 7, 2, 42, 2, 3.3292342346635, 0),
-(3, '', '', '', '', 1, 64, 2, 4, 1, 42, 2, 3.1023716881346, 0),
-(4, '', '', '', '', 1, 88, 1, 2, 2, 47, 2, 3.1002845894102, 0),
-(5, '', '', '', '', 1, 86, 1, 2, 1, 36, 1, 3.0275664854897, 0),
-(6, '', '', '', '', 1, 84, 1, 1, 1, 45, 2, 3.0639370237146, 0),
-(7, '', '', '', '', 2, 60, 2, 15, 1, 22, 1, 3.2754061320644, 0),
-(8, '', '', '', '', 1, 80, 1, 2, 2, 47, 2, 3.0916019623561, 0),
-(9, '', '', '', '', 2, 55, 1, 3, 1, 28, 1, 3.1689121408522, 0),
-(10, '', 'Budi', 'WIROSARI', '0', 2, 36, 2, 17, 0, 28, 2, 3.3191528658945, 0),
-(11, '', 'Budi', '11', '1', 1, 100, 1, 13, 0, 50, 1, 3.1726431045686, 0),
-(12, '2121', '', '11', '1', 1, 100, 1, 15, 1, 50, 1, 3.1855411855, 0),
-(13, '2121', '', '11', '1', 1, 100, 1, 15, 1, 50, 1, 3.1855411855, 3),
-(14, '2121', '', '11', 'SAMBIREJO', 1, 100, 1, 0, 1, 50, 1, 2.6476426939465, 0),
-(15, '2121', '', '11', 'SAMBIREJO', 1, 100, 1, 0, 1, 50, 1, 2.6476426939465, 0),
-(16, '3', '', 'WIROSARI', 'SAMBIREJO', 2, 100, 1, 4, 1, 50, 1, 3.2609256261589, 0);
+INSERT INTO `lahan` (`id`, `nama`, `namapetugas`, `kecamatan`, `desa`, `sumberair`, `minatmasyarakat`, `segikesehatan`, `nilai_kekeruhan`, `nilai_sisa_khlor`, `nilai_ph`, `jaraksumberair`, `perizinan`, `investor`, `konturtanah`, `hasil`, `status`) VALUES
+(23, '3', 'budi', 'WIROSARI', 'SAMBIREJO', 1, 100, 0, 10, 6, 5, 7, 1, 50, 1, 3.7590564578522, 0),
+(24, '1', 'reksa', 'WIROSARI', 'Kalirejo', 1, 100, 0, 1, 1, 1, 1, 1, 50, 1, 3.6502814357969, 0),
+(25, '3', 'reksa', 'WIROSARI', 'SAMBIREJO', 2, 60, 0, 4, 2, 3, 4, 1, 50, 1, 3.8447460048399, 0),
+(26, '3', 'ANANG', 'WIROSARI', 'SAMBIREJO', 1, 100, 0, 0.07, 0.1, 0.13, 12, 1, 50, 1, 3.8061261981781, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pendaftaran`
+-- Struktur dari tabel `pendaftaran`
 --
 
 CREATE TABLE `pendaftaran` (
@@ -137,7 +127,7 @@ CREATE TABLE `pendaftaran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pendaftaran`
+-- Dumping data untuk tabel `pendaftaran`
 --
 
 INSERT INTO `pendaftaran` (`id`, `nama`, `no_telpon`, `tanggal`, `kecamatan`, `desa`) VALUES
@@ -152,7 +142,7 @@ INSERT INTO `pendaftaran` (`id`, `nama`, `no_telpon`, `tanggal`, `kecamatan`, `d
 -- --------------------------------------------------------
 
 --
--- Table structure for table `statuslahan`
+-- Struktur dari tabel `statuslahan`
 --
 
 CREATE TABLE `statuslahan` (
@@ -163,7 +153,7 @@ CREATE TABLE `statuslahan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `statuslahan`
+-- Dumping data untuk tabel `statuslahan`
 --
 
 INSERT INTO `statuslahan` (`id_statuslahan`, `kecamatan`, `desa`, `status`) VALUES
@@ -174,7 +164,7 @@ INSERT INTO `statuslahan` (`id_statuslahan`, `kecamatan`, `desa`, `status`) VALU
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -187,14 +177,12 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
 INSERT INTO `users` (`id`, `nama`, `username`, `password`, `level`, `gambar`) VALUES
 (1, 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, ''),
-(2, 'asdhakfillah', 'asdhakfillah', '1d76db61a86c8519cfcca35ff5642e2b', 2, 'default.png'),
-(3, 'petugaslapangan', 'petugaslapangan', 'd5e66b6daf432554bcfd04cee0e3082c', 3, 'default.png'),
-(4, 'petugaspusat', 'petugaspusat', 'a960144d9d4d524a6b87563157776dd6', 1, 'default.png');
+(2, 'asdhakfillah', 'asdhakfillah', '1d76db61a86c8519cfcca35ff5642e2b', 2, 'default.png');
 
 --
 -- Indexes for dumped tables
@@ -245,38 +233,31 @@ ALTER TABLE `users`
 --
 ALTER TABLE `air`
   MODIFY `id_air` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- AUTO_INCREMENT for table `bobot`
 --
 ALTER TABLE `bobot`
   MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
 --
 -- AUTO_INCREMENT for table `lahan`
 --
 ALTER TABLE `lahan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT for table `pendaftaran`
 --
 ALTER TABLE `pendaftaran`
   MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
 --
 -- AUTO_INCREMENT for table `statuslahan`
 --
 ALTER TABLE `statuslahan`
   MODIFY `id_statuslahan` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-COMMIT;
-
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
