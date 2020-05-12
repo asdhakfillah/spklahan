@@ -57,7 +57,6 @@
                   </td>
                   <td class="text-right">
                     <a href="<?php echo base_url("Lahan/insert/".$value->id) ?>" class="btn btn-primary">Lahan</a>
-                    <a href="<?php echo base_url("Air/insert/".$value->id) ?>" class="btn btn-primary">Air</a>
                 </td>
                 </tr>
               <?php endforeach; ?>

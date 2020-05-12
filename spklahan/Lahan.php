@@ -7,8 +7,16 @@ class Lahan extends CI_Controller
     {
         $this->load->library('form_validation');
         $this->load->library(array('session'));
+        $this->load->library('pdf');
         $data_perhitungan['data_perhitungan'] = $this->db->order_by('hasil')->get('lahan')->result();
         $this->load->view('admin/lahan/index', $data_perhitungan);
+    }
+    function generate_to_pdf()
+    {
+        $data['data_perhitungan'] = $this->db->order_by('id')->get('lahan')->result();
+        $this->pdf->view('admin/lahan/index', $data);
+        $this->pdf->render();
+        $this->pdf->stream("data-lahan.pdf");
     }
 
     public function insert($id_pendaftaran = null)
@@ -24,9 +32,7 @@ class Lahan extends CI_Controller
         $this->form_validation->set_rules('desa', 'desa', 'trim|required');
         $this->form_validation->set_rules('sumberair', 'sumberair', 'trim|required');
         $this->form_validation->set_rules('minatmasyarakat', 'minatmasyarakat', 'trim|required');
-        $this->form_validation->set_rules('nilai_kekeruhan', 'nilai_kekeruhan', 'trim|required');
-        $this->form_validation->set_rules('nilai_sisa_khlor', 'nilai_sisa_khlor', 'trim|required');
-        $this->form_validation->set_rules('nilai_ph', 'nilai_ph', 'trim|required');
+        $this->form_validation->set_rules('segikesehatan', 'segikesehatan', 'trim|required');
         $this->form_validation->set_rules('jaraksumberair', 'jaraksumberair', 'trim|required');
         $this->form_validation->set_rules('perizinan', 'perizinan', 'trim|required');
         $this->form_validation->set_rules('investor', 'investor', 'trim|required');
@@ -37,14 +43,11 @@ class Lahan extends CI_Controller
         } else {
             $set_users = [
                 'nama' => $this->input->post('nama'),
-                'namapetugas' => $this->input->post('namapetugas'),
                 'kecamatan' => $this->input->post('kecamatan'),
                 'desa' => $this->input->post('desa'),
                 'sumberair' => $this->input->post('sumberair'),
                 'minatmasyarakat' => $this->input->post('minatmasyarakat'),
-                'nilai_kekeruhan' => $this->input->post('nilai_kekeruhan'),
-                'nilai_sisa_khlor' => $this->input->post('nilai_sisa_khlor'),
-                'nilai_ph' => $this->input->post('nilai_ph'),
+                'segikesehatan' => $this->input->post('segikesehatan'),
                 'jaraksumberair' => $this->input->post('jaraksumberair'),
                 'perizinan' => $this->input->post('perizinan'),
                 'investor' => $this->input->post('investor'),
@@ -74,9 +77,9 @@ class Lahan extends CI_Controller
             #kekeruhan
             ##ganti iki lek wes mbok ganti database e
             #$nilai_kekeruhan = $value->nama_kolom_kekeruhanmu
-            $nilai_kekeruhan = $value->nilai_kekeruhan;
-            $nilai_sisa_khlor = $value->nilai_sisa_khlor;
-            $nilai_ph = $value->nilai_ph;
+            $nilai_kekeruhan = 4;
+            $nilai_sisa_khlor = 0.5;
+            $nilai_ph = 6.7;
 
             $himpunan_kekeruhan = [
                 'min' => 0,
@@ -163,7 +166,7 @@ class Lahan extends CI_Controller
             $fuzzy_mutu = $sum_akaliz / array_sum($a);
 
             ##iki menurutmu
-            //$fuzzy_mutu = $sum_akaliz / (array_sum($a) + array_sum($z));
+            $fuzzy_mutu = $sum_akaliz / (array_sum($a) + array_sum($z));
             
             if ($fuzzy_mutu >= 0.5) {
                 $segi_kesehatan = 2;

@@ -66,10 +66,12 @@
                 <div class="form-group row">
                     <label class="col-md-2 col-form-label">Segi Kesehatan</label>
                     <div class="col-md-10">
-                        <select name="segikesehatan" class="form-control">
-                            <option value="1">Sehat</option>
-                            <option value="2">Tidak sehat</option>
-                        </select>
+                        kekeruhan
+                        <input type="number" name="nilai_kekeruhan" class="form-control" step="0.01">
+                        Sisa khlor
+                        <input type="number" name="nilai_sisa_khlor" class="form-control" step="0.01">
+                        pH
+                        <input type="number" name="nilai_ph" class="form-control" step="0.01">
                     </div>
                 </div>
 
